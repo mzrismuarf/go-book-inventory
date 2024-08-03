@@ -1,0 +1,29 @@
+{{ template "header.html" . }}
+<div class="col-xl-4 col-md-6 col-sm-12">
+    <div class="card">
+        <div class="card-content">
+            <div class="card-body">
+                <h4 class="card-title">{{.payload.Title}}</h4>
+                <p class="card-text">
+                    Penulis : {{.payload.Author}} | stok tersedia : {{.payload.Stock}}
+                </p>
+                <!-- update -->
+                <label for="">
+                    <form action="/updateBook/{{.payload.ID}}" method="GET">
+                        <input type="hidden" name="auth" value="{{.auth}}">
+                        <button type="update" class="btn btn-primary round">Update</button>
+                    </form>
+                </label>
+
+                <!-- delete -->
+                <label for="">
+                    <form action="/deleteBook/{{.payload.ID}}" method="POST">
+                        <input type="hidden" name="auth" value="{{.auth}}">
+                        <button type="delete" class="btn btn-danger round">Delete</button>
+                    </form>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+{{template "footer.html"}}

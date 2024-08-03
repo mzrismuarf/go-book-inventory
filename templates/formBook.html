@@ -1,0 +1,94 @@
+<!--addbook.html-->
+
+{{ template "header.html" .}}
+<div class="col-md-6 col-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Data Buku</h4>
+        </div>
+        <div class="card-content">
+            <div class="card-body">
+                {{if .payload}}
+                <form action="/updateBook/{{.payload.ID}}" method="post" class="form form-vertical">
+                    {{else}}
+                    <form action="/book" method="post" class="form form-vertical">
+                        {{end}}
+
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group has-icon-left">
+                                        <label for="first-name-icon">Judul Buku</label>
+                                        <div class="position-relative">
+                                            <input type="text" class="form-control" placeholder="Judul Buku"
+                                                name="title" value="{{.payload.Title}}" required>
+                                            <div class="form-control-icon">
+                                                <i class="ri-contacts-book-3-line"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+
+                                    <div class="form-group has-icon-left">
+                                        <label for="email-id-icon">Author / Penulis</label>
+                                        <div class="position-relative">
+                                            <input type="text" class="form-control" placeholder="Nama Author / Penulis"
+                                                name="author" value="{{.payload.Author}}" required>
+                                            <div class="form-control-icon">
+                                                <i class="ri-user-5-line"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group has-icon-left">
+                                        <label for="mobile-id-icon">Deskripsi</label>
+                                        <div class="position-relative">
+                                            <input type="text" class="form-control" placeholder="Deskripsi buku"
+                                                name="description" value="{{.payload.Description}}" required>
+                                            <div class="form-control-icon">
+                                                <i class="ri-article-line"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group has-icon-left">
+                                        <label for="password-id-icon">Stok</label>
+                                        <div class="position-relative">
+                                            <input type="text" class="form-control" placeholder="Isi Stok Buku"
+                                                name="stock" value="{{.payload.Stock}}" required>
+                                            <div class="form-control-icon">
+                                                <i class="ri-hard-drive-2-line"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class='form-check'>
+                                        <div class="checkbox mt-2">
+                                            <input type="checkbox" id="remember-me-v" class='form-check-input' checked>
+                                            <label for="remember-me-v">Remember Me</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label class="label" hidden>Auth</label>
+                                    <div class="control" hidden>
+                                        <input class="hidden" type="text" placeholder="Enter Auth" name="auth"
+                                            value="{{.auth}}" required>
+                                    </div>
+                                </div>
+                                <div class="col-12 d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+{{ template "footer.html" .}}

@@ -1,0 +1,12 @@
+.container-act {
+    display: flex;
+}
+
+.hide-HoverAction {
+    opacity: 0;
+}
+
+.container-act:hover,
+.HoverAction:hover+.hide-HoverAction {
+    opacity: 100;
+}

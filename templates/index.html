@@ -1,0 +1,43 @@
+{{ template "header.html" . }}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="row" id="table-striped">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Inventory Book</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="table-responsive">
+                            <table class="table table-striped mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Nama Buku</th>
+                                        <th>Penulis</th>
+                                        <th>Deskripsi</th>
+                                        <th>Stok</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{range .payload}}
+                                    <tr>
+                                        <td class="text-bold-500"><a href="/book/{{.ID}}?auth={{$.auth}}">{{.Title}}</a>
+                                        </td>
+                                        <td>{{.Author}}r</td>
+                                        <td class="text-bold-500">{{.Description}}</td>
+                                        <td>{{.Stock}}</td>
+                                    </tr>
+                                    {{end}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+</section>
+{{template "footer.html"}}
